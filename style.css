@@ -1,4 +1,4 @@
-```css
+
 * {
     margin: 0;
     padding: 0;
@@ -34,8 +34,7 @@ body {
 
 .heart-container {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +54,7 @@ body {
     font-weight: bold;
     white-space: nowrap;
     opacity: 0;
-    animation: appear 1s ease forwards;
+    animation: appear 0.8s ease forwards;
 }
 
 .message {
@@ -103,8 +102,14 @@ body {
 }
 
 @keyframes appear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
     to {
-        opacity: 0.85;
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 
@@ -143,4 +148,3 @@ body {
         font-size: 18px;
     }
 }
-```

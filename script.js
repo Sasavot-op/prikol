@@ -1,4 +1,3 @@
-```javascript
 const heart = document.getElementById("heart");
 
 const amount = 500;
@@ -35,26 +34,39 @@ for (let i = 0; i < amount; i++) {
     love.style.left = `${300 + x * scale}px`;
     love.style.top = `${275 + y * scale}px`;
 
-    const normalizedY = (y + 17) / 34;
+    /*
+        Преобразуем Y координату сердца
+        в номер полосы флага.
+    */
 
-    const colorIndex = Math.min(
-        flagColors.length - 1,
-        Math.floor(normalizedY * flagColors.length)
+    const normalizedY = Math.max(
+        0,
+        Math.min(0.9999, (y + 17) / 34)
     );
 
-    love.style.color = flagColors[colorIndex];
+    const colorIndex = Math.floor(
+        normalizedY * flagColors.length
+    );
+
+    const color = flagColors[colorIndex];
+
+    love.style.color = color;
 
     love.style.textShadow = `
-        0 0 5px ${flagColors[colorIndex]},
-        0 0 10px ${flagColors[colorIndex]},
-        0 0 20px ${flagColors[colorIndex]}
+        0 0 5px ${color},
+        0 0 10px ${color},
+        0 0 20px ${color}
     `;
 
-    love.style.animationDelay = `${2.5 + i * 0.012}s`;
+    /*
+        Сердце появляется постепенно.
+    */
+
+    love.style.animationDelay =
+        `${2.5 + i * 0.012}s`;
 
     love.style.transform =
         `translate(-50%, -50%) rotate(${Math.random() * 40 - 20}deg)`;
 
     heart.appendChild(love);
 }
-```
