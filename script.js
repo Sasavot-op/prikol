@@ -1,3 +1,4 @@
+```javascript
 const heart = document.getElementById("heart");
 
 const amount = 500;
@@ -34,8 +35,8 @@ for (let i = 0; i < amount; i++) {
     love.style.left = `${300 + x * scale}px`;
     love.style.top = `${275 + y * scale}px`;
 
-    // Цвет зависит от положения по вертикали
     const normalizedY = (y + 17) / 34;
+
     const colorIndex = Math.min(
         flagColors.length - 1,
         Math.floor(normalizedY * flagColors.length)
@@ -56,3 +57,4 @@ for (let i = 0; i < amount; i++) {
 
     heart.appendChild(love);
 }
+```
